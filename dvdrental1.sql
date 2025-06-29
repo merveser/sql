@@ -1,5 +1,5 @@
 SELECT title,description FROM film
-ORDER BY desc;
+ORDER BY title;
 
 
 SELECT * FROM film
