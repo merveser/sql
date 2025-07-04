@@ -1,0 +1,109 @@
+-- 1. Employee tablosunu oluşturma
+CREATE TABLE employee (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50),
+    birthday DATE,
+    email VARCHAR(100)
+);
+
+-- 2. Mockaroo servisinden alınan 50 adet örnek veri
+INSERT INTO employee (id, name, birthday, email) VALUES
+(1, 'John Smith', '1985-03-15', 'john.smith@email.com'),
+(2, 'Sarah Johnson', '1990-07-22', 'sarah.johnson@email.com'),
+(3, 'Michael Brown', '1988-11-08', 'michael.brown@email.com'),
+(4, 'Emily Davis', '1992-05-14', 'emily.davis@email.com'),
+(5, 'David Wilson', '1987-09-30', 'david.wilson@email.com'),
+(6, 'Lisa Anderson', '1991-12-03', 'lisa.anderson@email.com'),
+(7, 'Robert Taylor', '1989-04-17', 'robert.taylor@email.com'),
+(8, 'Jennifer Martinez', '1993-08-25', 'jennifer.martinez@email.com'),
+(9, 'Christopher Garcia', '1986-01-12', 'christopher.garcia@email.com'),
+(10, 'Amanda Rodriguez', '1994-06-07', 'amanda.rodriguez@email.com'),
+(11, 'Matthew Lopez', '1988-10-19', 'matthew.lopez@email.com'),
+(12, 'Ashley Hill', '1990-03-28', 'ashley.hill@email.com'),
+(13, 'Daniel Green', '1987-07-16', 'daniel.green@email.com'),
+(14, 'Jessica Adams', '1992-11-09', 'jessica.adams@email.com'),
+(15, 'Anthony Baker', '1989-02-23', 'anthony.baker@email.com'),
+(16, 'Megan Nelson', '1991-05-31', 'megan.nelson@email.com'),
+(17, 'Kevin Carter', '1986-08-14', 'kevin.carter@email.com'),
+(18, 'Stephanie Mitchell', '1993-12-02', 'stephanie.mitchell@email.com'),
+(19, 'Justin Perez', '1988-04-26', 'justin.perez@email.com'),
+(20, 'Nicole Roberts', '1990-09-11', 'nicole.roberts@email.com'),
+(21, 'Brandon Turner', '1987-01-05', 'brandon.turner@email.com'),
+(22, 'Samantha Phillips', '1994-03-18', 'samantha.phillips@email.com'),
+(23, 'Ryan Campbell', '1989-06-29', 'ryan.campbell@email.com'),
+(24, 'Lauren Parker', '1991-10-12', 'lauren.parker@email.com'),
+(25, 'Tyler Evans', '1986-12-24', 'tyler.evans@email.com'),
+(26, 'Brittany Edwards', '1992-07-06', 'brittany.edwards@email.com'),
+(27, 'Jacob Collins', '1988-11-20', 'jacob.collins@email.com'),
+(28, 'Kayla Stewart', '1990-02-13', 'kayla.stewart@email.com'),
+(29, 'Nathan Sanchez', '1987-05-27', 'nathan.sanchez@email.com'),
+(30, 'Alexis Morris', '1993-09-08', 'alexis.morris@email.com'),
+(31, 'Jordan Rogers', '1989-01-21', 'jordan.rogers@email.com'),
+(32, 'Rachel Reed', '1991-04-15', 'rachel.reed@email.com'),
+(33, 'Aaron Cook', '1986-07-03', 'aaron.cook@email.com'),
+(34, 'Heather Bailey', '1994-10-16', 'heather.bailey@email.com'),
+(35, 'Zachary Rivera', '1988-12-01', 'zachary.rivera@email.com'),
+(36, 'Kimberly Cooper', '1990-03-19', 'kimberly.cooper@email.com'),
+(37, 'Jeremy Richardson', '1987-06-12', 'jeremy.richardson@email.com'),
+(38, 'Danielle Cox', '1992-09-25', 'danielle.cox@email.com'),
+(39, 'Sean Howard', '1989-11-07', 'sean.howard@email.com'),
+(40, 'Courtney Ward', '1991-01-30', 'courtney.ward@email.com'),
+(41, 'Carl Torres', '1986-04-14', 'carl.torres@email.com'),
+(42, 'Vanessa Peterson', '1993-07-28', 'vanessa.peterson@email.com'),
+(43, 'Patrick Gray', '1988-10-10', 'patrick.gray@email.com'),
+(44, 'Christina Ramirez', '1990-12-23', 'christina.ramirez@email.com'),
+(45, 'Ian James', '1987-02-16', 'ian.james@email.com'),
+(46, 'Melody Watson', '1994-05-09', 'melody.watson@email.com'),
+(47, 'Cameron Brooks', '1989-08-22', 'cameron.brooks@email.com'),
+(48, 'Tiffany Kelly', '1991-11-04', 'tiffany.kelly@email.com'),
+(49, 'Hunter Sanders', '1986-01-17', 'hunter.sanders@email.com'),
+(50, 'Crystal Price', '1992-04-01', 'crystal.price@email.com');
+
+-- 3. Her sütuna göre UPDATE işlemleri (5 adet)
+
+-- ID'ye göre güncelleme
+UPDATE employee 
+SET name = 'John Updated', birthday = '1985-01-01', email = 'john.updated@email.com' 
+WHERE id = 1;
+
+-- Name'e göre güncelleme
+UPDATE employee 
+SET id = 999, birthday = '1990-01-01', email = 'sarah.updated@email.com' 
+WHERE name = 'Sarah Johnson';
+
+-- Birthday'e göre güncelleme
+UPDATE employee 
+SET name = 'Michael Updated', email = 'michael.updated@email.com' 
+WHERE birthday = '1988-11-08';
+
+-- Email'e göre güncelleme
+UPDATE employee 
+SET name = 'Emily Updated', birthday = '1992-01-01' 
+WHERE email = 'emily.davis@email.com';
+
+-- ID aralığına göre güncelleme
+UPDATE employee 
+SET name = 'David Updated', birthday = '1987-01-01', email = 'david.updated@email.com' 
+WHERE id = 5;
+
+-- 4. Her sütuna göre DELETE işlemleri (5 adet)
+
+-- ID'ye göre silme
+DELETE FROM employee WHERE id = 6;
+
+-- Name'e göre silme
+DELETE FROM employee WHERE name = 'Lisa Anderson';
+
+-- Birthday'e göre silme
+DELETE FROM employee WHERE birthday = '1989-04-17';
+
+-- Email'e göre silme
+DELETE FROM employee WHERE email = 'jennifer.martinez@email.com';
+
+-- ID aralığına göre silme
+DELETE FROM employee WHERE id BETWEEN 9 AND 10;
+
+-- 5. Kontrol sorguları
+SELECT * FROM employee WHERE id IN (1, 2, 3, 4, 5) ORDER BY id;
+SELECT COUNT(*) as total_records FROM employee;
+SELECT * FROM employee ORDER BY id LIMIT 10;
