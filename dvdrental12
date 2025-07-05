@@ -1,0 +1,27 @@
+-- 1. Film uzunluğu ortalama film uzunluğundan fazla olan film sayısı
+SELECT COUNT(*) AS ortalama_uzunluktan_fazla_film_sayisi
+FROM film
+WHERE length > (SELECT AVG(length) FROM film);
+
+-- 2. En yüksek rental_rate değerine sahip film sayısı
+SELECT COUNT(*) AS en_yuksek_rental_rate_film_sayisi
+FROM film
+WHERE rental_rate = (SELECT MAX(rental_rate) FROM film);
+
+-- 3. En düşük rental_rate ve en düşük replacement_cost değerlerine sahip filmler
+SELECT title, rental_rate, replacement_cost
+FROM film
+WHERE rental_rate = (SELECT MIN(rental_rate) FROM film)
+  AND replacement_cost = (SELECT MIN(replacement_cost) FROM film)
+ORDER BY title;
+
+-- 4. En fazla sayıda alışveriş yapan müşteriler
+SELECT 
+    c.customer_id,
+    c.first_name,
+    c.last_name,
+    COUNT(p.payment_id) AS toplam_alisveris_sayisi
+FROM customer c
+INNER JOIN payment p ON c.customer_id = p.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name
+ORDER BY toplam_alisveris_sayisi DESC;
