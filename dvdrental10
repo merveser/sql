@@ -1,0 +1,28 @@
+-- 1. LEFT JOIN: City ve Country tabloları
+-- Sol tablodaki (city) tüm kayıtları getirir, sağ tabloda (country) eşleşme yoksa NULL döner
+SELECT 
+    c.city,
+    co.country
+FROM city c
+LEFT JOIN country co ON c.country_id = co.country_id
+ORDER BY c.city;
+
+-- 2. RIGHT JOIN: Customer ve Payment tabloları  
+-- Sağ tablodaki (customer) tüm kayıtları getirir, sol tabloda (payment) eşleşme yoksa NULL döner
+SELECT 
+    p.payment_id,
+    c.first_name,
+    c.last_name
+FROM payment p
+RIGHT JOIN customer c ON p.customer_id = c.customer_id
+ORDER BY c.last_name, c.first_name;
+
+-- 3. FULL JOIN: Customer ve Rental tabloları
+-- Her iki tablodaki tüm kayıtları getirir, eşleşme yoksa NULL döner
+SELECT 
+    r.rental_id,
+    c.first_name,
+    c.last_name
+FROM rental r
+FULL JOIN customer c ON r.customer_id = c.customer_id
+ORDER BY r.rental_id;
