@@ -1,0 +1,38 @@
+-- 1. City ve Country tablolarını birleştiren INNER JOIN sorgusu
+-- city tablosundaki country_id ile country tablosundaki country_id eşleştiriliyor
+SELECT 
+    c.city_id,
+    c.city,
+    co.country_id,
+    co.country
+FROM city c
+INNER JOIN country co ON c.country_id = co.country_id
+ORDER BY co.country, c.city;
+
+
+-- 2. Customer ve Payment tablolarını birleştiren INNER JOIN sorgusu
+-- customer tablosundaki customer_id ile payment tablosundaki customer_id eşleştiriliyor
+SELECT 
+    p.payment_id,
+    p.amount,
+    p.payment_date,
+    c.first_name,
+    c.last_name,
+    c.email
+FROM payment p
+INNER JOIN customer c ON p.customer_id = c.customer_id
+ORDER BY p.payment_date DESC;
+
+
+-- 3. Customer ve Rental tablolarını birleştiren INNER JOIN sorgusu
+-- customer tablosundaki customer_id ile rental tablosundaki customer_id eşleştiriliyor
+SELECT 
+    r.rental_id,
+    r.rental_date,
+    r.return_date,
+    c.first_name,
+    c.last_name,
+    c.email
+FROM rental r
+INNER JOIN customer c ON r.customer_id = c.customer_id
+ORDER BY r.rental_date DESC;
