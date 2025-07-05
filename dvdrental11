@@ -1,0 +1,35 @@
+-- 1. UNION: Actor ve Customer tablolarındaki tüm first_name verileri (tekrar eden veriler hariç)
+SELECT first_name FROM actor
+UNION
+SELECT first_name FROM customer
+ORDER BY first_name;
+
+-- 2. INTERSECT: Actor ve Customer tablolarındaki kesişen first_name verileri
+SELECT first_name FROM actor
+INTERSECT
+SELECT first_name FROM customer
+ORDER BY first_name;
+
+-- 3. EXCEPT: Actor tablosunda bulunan ancak Customer tablosunda bulunmayan first_name verileri
+SELECT first_name FROM actor
+EXCEPT
+SELECT first_name FROM customer
+ORDER BY first_name;
+
+-- 4. UNION ALL: Actor ve Customer tablolarındaki tüm first_name verileri (tekrar eden veriler dahil)
+SELECT first_name FROM actor
+UNION ALL
+SELECT first_name FROM customer
+ORDER BY first_name;
+
+-- 5. INTERSECT ALL: Actor ve Customer tablolarındaki kesişen first_name verileri (tekrar eden veriler dahil)
+SELECT first_name FROM actor
+INTERSECT ALL
+SELECT first_name FROM customer
+ORDER BY first_name;
+
+-- 6. EXCEPT ALL: Actor tablosunda bulunan ancak Customer tablosunda bulunmayan first_name verileri (tekrar eden veriler dahil)
+SELECT first_name FROM actor
+EXCEPT ALL
+SELECT first_name FROM customer
+ORDER BY first_name;
